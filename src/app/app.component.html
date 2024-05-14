@@ -8,5 +8,20 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1 class="example-app-name">Angular Practicals</h1>
+    <span class="example-spacer"></span>
+   
+  </mat-toolbar>
 
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item (click)="onRouteClick(nav.value,nav.text)" *ngFor="let nav of fillerNav">{{nav.text}}</a>
+      </mat-nav-list>
+    </mat-sidenav>
 <router-outlet></router-outlet>

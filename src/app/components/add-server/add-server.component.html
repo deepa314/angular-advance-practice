@@ -1,0 +1,26 @@
+
+<div class="mat-dialog-title">
+    <div class="advance-head">
+        <h4>Add Server</h4>
+    </div>
+    <button mat-icon-button class="close-icon" (click)="close()"></button>
+</div>
+
+<div class="container">
+    <form [formGroup]="serverForm">
+     <div class="mb-3">
+        <label class="form-label">Server Name</label>
+        <input matInput type="text" class="form-control" formControlName="name">
+        <p class="red-text" *ngIf="serverForm.controls['name'].hasError('required')&&serverForm.controls['name'].touched">Name is required</p>
+     </div>
+     <div class="mb-3">
+        <label class="form-label">Server description</label>
+        <textarea formControlName="desc" rows="3"></textarea>
+     </div>
+     <div>
+     <button class="btn btn-primary" type="submit" >Submit</button>
+     <button class="btn btn-danger" (click)="close()">Cancel</button>
+     </div>
+
+    </form>
+</div>

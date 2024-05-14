@@ -7,11 +7,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { Route, Router } from '@angular/router';
 import { MaterialModule } from '../../shared/material/material.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule,MatFormFieldModule,ReactiveFormsModule],
+  imports: [CommonModule,MatFormFieldModule,ReactiveFormsModule, MatButtonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.form=this.fb.group({
-     username:['', [Validators.required]],
-     password: ['', [Validators.required]],
+      username: [{ value: '', disabled: false }, [Validators.required]],
+      password: [{ value: '', disabled: false }, [Validators.required]],
     })
   }
 

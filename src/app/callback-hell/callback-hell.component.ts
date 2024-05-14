@@ -16,6 +16,8 @@ export class CallbackHellComponent implements OnInit {
   constructor(private service:DataService){}
   data!:any;
 
+  
+
   ngOnInit(): void {
     this.data=this.service.getUser().pipe(
       tap((user)=>console.log(user)),
